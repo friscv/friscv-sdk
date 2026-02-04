@@ -27,7 +27,7 @@ $(BIN): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 
 $(DISASM): $(ELF)
-	$(OBJDUMP) -d -j .text $< > $@
+	$(OBJDUMP) -d $< > $@
 
 else
 all: $(TARGET)
