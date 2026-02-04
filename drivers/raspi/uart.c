@@ -16,7 +16,7 @@ int uart_init(void) {
 
     if (serial_port < 0) {
         perror("Error opening serial port");
-        return 1;
+        return -1;
     }
 
     struct termios tty;
@@ -24,7 +24,7 @@ int uart_init(void) {
     if (tcgetattr(serial_port, &tty) != 0) {
         perror("Error getting serial attributes");
         close(serial_port);
-        return 1;
+        return -1;
     }
 
     // Set baud rate 115200
@@ -62,7 +62,7 @@ int uart_init(void) {
     if (tcsetattr(serial_port, TCSANOW, &tty) != 0) {
         perror("Error setting serial attributes");
         close(serial_port);
-        return 1;
+        return -1;
     }
 
     return 0;
