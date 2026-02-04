@@ -42,6 +42,7 @@ else ifeq ($(PLATFORM),raspi)
 
     # Drivers
     FRISCV_SRCS += $(FRISCV_SDK)/drivers/raspi/uart.c
+    FRISCV_SRCS += $(FRISCV_SDK)/drivers/raspi/leds.c
 
     # No startup code needed for Linux
     FRISCV_CRT0 :=
