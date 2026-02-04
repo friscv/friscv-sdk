@@ -30,6 +30,7 @@ ifeq ($(PLATFORM),friscv)
 
     # Drivers
     FRISCV_SRCS += $(FRISCV_SDK)/drivers/friscv/uart.c
+    FRISCV_SRCS += $(FRISCV_SDK)/drivers/friscv/leds.c
 
     # Startup code
     FRISCV_CRT0 := $(FRISCV_SDK)/startup/crt0.S

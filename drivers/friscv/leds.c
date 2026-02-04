@@ -19,7 +19,7 @@ uint8_t leds_get_all() {
 }
 
 int leds_check_idx(uint8_t led) {
-    if (led < 0 || led >= 4) {
+    if (led >= 4) {
         return -1;
     }
     return 0;
@@ -31,7 +31,6 @@ void leds_set_nocheck(uint8_t led, int v) {
     } else {
         LEDS_BASE &= ~(1 << led);
     }
-    return 0;
 }
 
 int leds_set(uint8_t led, int v) {
@@ -50,6 +49,10 @@ int leds_set_off(uint8_t led) {
     return leds_set(led, 0);
 }
 
+int leds_get_nocheck(uint8_t led) {
+    return (LEDS_BASE >> led) & 0x1;
+}
+
 void leds_toggle_nocheck(uint8_t led) {
     leds_set_nocheck(led, !leds_get_nocheck(led));
 }
@@ -62,10 +65,6 @@ int leds_toggle(uint8_t led) {
     return 0;
 }
 
-int leds_get_nocheck(uint8_t led) {
-    return (LEDS_BASE >> led) & 0x1;
-}
-
 int leds_get(uint8_t led) {
     if (leds_check_idx(led)) {
         return -1;
@@ -74,7 +73,7 @@ int leds_get(uint8_t led) {
 }
 
 void wait_cycles(volatile uint32_t delay) {
-    for (int i = 0; i < delay; i++);
+    for (uint32_t i = 0; i < delay; i++);
 }
 
 int leds_blink(uint8_t led, uint32_t delay, int wait_after) {

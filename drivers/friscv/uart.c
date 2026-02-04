@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 // UARTLite register definitions
-#define UART_BASE      ((volatile uint32_t *)0x40600000)
+#define UART_BASE      0x40600000
 #define UART_RX_FIFO   (*(volatile uint32_t *)(UART_BASE + 0x0))
 #define UART_TX_FIFO   (*(volatile uint32_t *)(UART_BASE + 0x4))
 #define UART_STAT_REG  (*(volatile uint32_t *)(UART_BASE + 0x8))
