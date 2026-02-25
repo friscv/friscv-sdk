@@ -1,5 +1,3 @@
-PLATFORM ?= friscv
-
 .PHONY: all clean examples echo
 
 all: examples
@@ -7,7 +5,7 @@ all: examples
 examples: echo
 
 echo:
-	$(MAKE) -C examples/echo PLATFORM=$(PLATFORM)
+	$(MAKE) -C examples/echo
 
 clean:
 	$(MAKE) -C examples/echo clean
