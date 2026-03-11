@@ -15,9 +15,12 @@ SIZE := $(CROSS)size
 ARCH := rv32i
 ABI := ilp32
 
+# UART driver selection: "16550" (default) or "friscv" (UARTLite)
+UART_DRIVER ?= 16550
+
 # SDK source files
 FRISCV_SRCS := $(FRISCV_SDK)/src/uart_protocol.c
-FRISCV_SRCS += $(FRISCV_SDK)/drivers/friscv/uart.c
+FRISCV_SRCS += $(FRISCV_SDK)/drivers/$(UART_DRIVER)/uart.c
 FRISCV_SRCS += $(FRISCV_SDK)/drivers/friscv/leds.c
 
 # Startup code
