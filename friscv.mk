@@ -22,6 +22,7 @@ UART_DRIVER ?= 16550
 FRISCV_SRCS := $(FRISCV_SDK)/src/uart_protocol.c
 FRISCV_SRCS += $(FRISCV_SDK)/drivers/$(UART_DRIVER)/uart.c
 FRISCV_SRCS += $(FRISCV_SDK)/drivers/friscv/leds.c
+FRISCV_SRCS += $(FRISCV_SDK)/drivers/friscv/rgb_leds.c
 
 # Startup code
 FRISCV_CRT0 := $(FRISCV_SDK)/startup/crt0.S
